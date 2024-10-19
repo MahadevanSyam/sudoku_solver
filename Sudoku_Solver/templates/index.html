@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Solver</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Sudoku Solver</h1>
+        <div id="sudoku-board">
+            <!-- 9x9 grid for input -->
+            <table>
+                <tbody>
+                    {% for row in range(9) %}
+                    <tr>
+                        {% for col in range(9) %}
+                        <td><input type="number" min="0" max="9" value="0" class="cell" id="cell-{{ row }}-{{ col }}"></td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <button id="solve-btn">Solve</button>
+        <div id="status"></div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
